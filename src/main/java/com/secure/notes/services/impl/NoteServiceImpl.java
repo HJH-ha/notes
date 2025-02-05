@@ -36,7 +36,6 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public void deleteNoteForUser(Long noteId, String username) {
         noteRepository.deleteById(noteId);
-
     }
 
     @Override
