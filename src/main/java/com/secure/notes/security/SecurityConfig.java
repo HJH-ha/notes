@@ -20,11 +20,11 @@ public class SecurityConfig {
         http.authorizeHttpRequests(requests
                 -> requests
                 .anyRequest().authenticated());
-        http.csrf(AbstractHttpConfigurer::disable); // CSRF 중지
+        http.csrf(AbstractHttpConfigurer::disable); // CSRF 중지 (post 는 csrf 토큰필요)
         // http.formLogin(withDefaults());
         // http.sessionManagement(session ->
         //        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.httpBasic(withDefaults());
+        http.httpBasic(withDefaults()); // 시큐리티 걸었을때 처음 로그인 비밀번호 암호화
 
         return http.build();
     }
